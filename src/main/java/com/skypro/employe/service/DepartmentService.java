@@ -1,8 +1,8 @@
 package com.skypro.employe.service;
 
 import com.skypro.employe.exception.EmployeeNotFoundException;
-import com.skypro.employee.service.EmployeeService;
-import com.skypro.employee.model.Employee;
+import com.skypro.employe.service.EmployeeService;
+import com.skypro.employe.model.Employee;
 
 import javax.swing.*;
 import java.util.Collection;
@@ -56,4 +56,6 @@ public class DepartmentService {
                 .stream()
                 .collect(Collectors.groupingBy(e -> e.getDepartment()));
     }
+
+
 }

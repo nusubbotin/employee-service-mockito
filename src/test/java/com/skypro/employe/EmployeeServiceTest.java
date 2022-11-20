@@ -1,14 +1,17 @@
 package com.skypro.employe;
 
-import com.skypro.employee.model.Employee;
-import com.skypro.employee.record.EmployeeRequest;
-import com.skypro.employee.service.EmployeeService;
+import com.skypro.employe.model.Employee;
+import com.skypro.employe.record.EmployeeRequest;
+import com.skypro.employe.service.EmployeeService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
 
 public class EmployeeServiceTest {
 
@@ -86,6 +89,14 @@ public class EmployeeServiceTest {
                 .first()
                 .extracting(Employee::getFirstName)
                 .isEqualTo("EmpE");
+    }
+
+    @Test
+    public void deleteEmployee(){
+        employeeService.deleteEmployee(0);
+        Collection<Employee> employees = employeeService.getAllEmployees();
+
+        Assertions.assertThat(employees).hasSize(4);
     }
 
 }

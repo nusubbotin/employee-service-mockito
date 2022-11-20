@@ -1,4 +1,4 @@
-package com.skypro.employee.model;
+package com.skypro.employe.model;
 
 import java.util.Collection;
 

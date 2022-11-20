@@ -1,8 +1,8 @@
-package com.skypro.employee.service;
+package com.skypro.employe.service;
 
 import com.skypro.employe.exception.EmployeeNotFoundException;
-import com.skypro.employee.model.Employee;
-import com.skypro.employee.record.EmployeeRequest;
+import com.skypro.employe.model.Employee;
+import com.skypro.employe.record.EmployeeRequest;
 import org.apache.el.lang.FunctionMapperImpl;
 import org.springframework.stereotype.Service;
 
@@ -62,5 +62,9 @@ public class EmployeeService {
                     .filter(e-> e.getSalary() >= averageSalary)
                     .collect(Collectors.toList());
 
+    }
+
+    public void deleteEmployee(int id){
+        employees.remove(id);
     }
 }

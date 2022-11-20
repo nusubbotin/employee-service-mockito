@@ -1,8 +1,8 @@
-package com.skypro.employee.controller;
+package com.skypro.employe.controller;
 
-import com.skypro.employee.model.Employee;
-import com.skypro.employee.record.EmployeeRequest;
-import com.skypro.employee.service.EmployeeService;
+import com.skypro.employe.model.Employee;
+import com.skypro.employe.record.EmployeeRequest;
+import com.skypro.employe.service.EmployeeService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

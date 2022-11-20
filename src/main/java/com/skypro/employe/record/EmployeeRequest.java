@@ -1,4 +1,4 @@
-package com.skypro.employee.record;
+package com.skypro.employe.record;
 
 public class EmployeeRequest {
 
