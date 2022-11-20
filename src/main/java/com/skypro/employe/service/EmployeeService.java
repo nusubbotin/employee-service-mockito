@@ -1,5 +1,6 @@
 package com.skypro.employee.service;
 
+import com.skypro.employe.exception.EmployeeNotFoundException;
 import com.skypro.employee.model.Employee;
 import com.skypro.employee.record.EmployeeRequest;
 import org.apache.el.lang.FunctionMapperImpl;
@@ -33,25 +34,32 @@ public class EmployeeService {
                 .sum();
     }
 
-    public OptionalInt getMinSalary(){
+    public int getMinSalary(){
         return employees.values().stream()
                 .mapToInt(Employee::getSalary)
-                .min();
+                .min()
+                .orElseThrow(EmployeeNotFoundException:: new);
     }
 
-    public OptionalInt getMaxSalary(){
+    public int getMaxSalary(){
         return employees.values().stream()
                 .mapToInt(Employee::getSalary)
-                .max();
+                .max()
+                .orElseThrow(EmployeeNotFoundException :: new);
+    }
+
+    public double getAverageSalary(){
+        return employees.values().stream()
+                .mapToInt(Employee::getSalary)
+                .average()
+                .orElseThrow(EmployeeNotFoundException :: new);
     }
 
     public Collection<Employee> getHighSalaryEmployees(){
-        OptionalDouble averageSalary = employees.values().stream()
-                .mapToInt(Employee::getSalary)
-                .average();
+        Double averageSalary = getAverageSalary();
 
             return employees.values().stream()
-                    .filter(e-> e.getSalary() >= averageSalary.getAsDouble())
+                    .filter(e-> e.getSalary() >= averageSalary)
                     .collect(Collectors.toList());
 
     }
